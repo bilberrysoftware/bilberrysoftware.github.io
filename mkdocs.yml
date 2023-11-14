@@ -1,0 +1,58 @@
+site_name: Bilberry Software
+extra_css:
+  - stylesheets/extra.css
+theme:
+  name: material
+  # favicon:
+  #   logo: material/file-code
+  icon:
+    logo: material/file-code
+  palette:
+    primary: deep purple
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.expand
+    - toc.integrate
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - navigation.footer
+plugins:
+  - search
+  - blog
+  - rss:
+      match_path: blog/posts/.* 
+      date_from_meta:
+        as_creation: date
+      categories:
+        - categories
+        - tags 
+extra:
+  # generator: false
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/bilberrysw
+    - icon: fontawesome/solid/paper-plane
+      link: mailto:info@bilberrysoftware.com
+  consent:
+    actions:
+      - accept
+      - reject 
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our website and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our website better.
+nav:
+  - Home: 'index.md'
+  - Services: 'services.md'
+  - Software: 'software.md'
+  - Bilberry Blog: './blog/index.md'
+  - About: 'about.md'
+  - Contact Us: 'contact-us.md'
+copyright: Copyright &copy; 2023-2024 Bilberry Software Ltd
