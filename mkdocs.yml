@@ -51,7 +51,10 @@ extra:
 nav:
   - Home: 'index.md'
   - Services: 'services.md'
-  - Software: 'software.md'
+  - Software:
+    - 'software.md'
+    - Kubernetes & Inventory: 'k8s.md'
+    - Workflow & Streamflow: 'easyflow.md'
   - Bilberry Blog: './blog/index.md'
   - About: 'about.md'
   - Contact Us: 'contact-us.md'

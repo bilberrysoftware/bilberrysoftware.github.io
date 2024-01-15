@@ -2,19 +2,21 @@
 
 At Bilberry Software we believe in repeatable solutions. That's why over the years we've spotted gaps in the market and have created supported Open Source software to fill those gaps, saving time and money.
 
-## Easy Workflow
+Below is an image representing our software portfolio. Please visit the separate product pages for further details.
 
-Ever wanted to string together human decisions with your company's own software, or SaaS software? Don't want to hire an army of software engineers to achieve this?
+![Bilberry Software product portfolio](images/portfolio.jpg)
 
-We created Easy Workflow to take a simple workflow model of human decision steps and system steps (microservices and functions) and generate the 'glue' to link all these things together. Workflows can be either manually initiated through a web forms interface, or from any event that happens in your IT estate. Easy Workflow then launches the appropriate model and manages it through its lifecycle until completion.
+## Bilberry Kubernetes and Bilberry Inventory
 
-With it's Turing Complete function set, ability to link to any microservice (RESTful HTTPs or Message/IoT based), and scalability to run over 60,000 actions every second on a single core on any Cloud, Easy Workflow can help you automate your processes in your organisation. It's lightweight nature even allows it to run at the Edge on embedded computer devices, in office comms cabinets, or on vehicles.
+Bilberry Kubernetes takes your existing Kubernetes distribution and configures it with best practice security and performance configuration. We also layer on commonly required services such as reliable storage, relational database, and messaging software. This enables your applications to work immediately without having to source software and support for these components. For customers without their own or preferred Kubernetes distribution, we can provide supported licenses too.
 
-## Easy Workflow Streams
+Installing and configuration Kubernetes clusters can be a challenge, so we provide the Bilberry Inventory application to streamline and manage this process. You simply 'adopt' your bare metal servers, VMs, and other devices and instruct the Inventory which to create a running environment out of, and let the Inventory do the rest. This drastically simplifies Day 1 operations.
 
-We found we were writing software to plug together re-usable microservices a lot. We also found some systems were generating millions of messages or events a day - a quantity way in excess of even the best trained human teams.
+See the [Bilberry Kubernetes page](k8s.md) for more details.
 
-We built Easy Workflow Streams to handle millions of events a day and process them in an automated fashion. Using AI/ML techniques and simple configuration, we can extract the key events in a sea of activity, and highlight them to people for analysis and review. By linking with Easy Workflow, we can start new Investigations/Cases, filing these events in those case folders for later review and actioning. This enables your staff to respond to events in real time.
+## Easy Workflow and Easy Streamflow
+
+We provide zero-code software to define human and content centric Workflows, as well as streaming data analysis and processing software, in our Easy Workflow and Easy Streamflow products, respectively. Please visit the [Easy Workflow](easyflow.md) page for more details.
 
 ## Third party open source software
 
