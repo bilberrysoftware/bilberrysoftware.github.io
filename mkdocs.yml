@@ -1,4 +1,5 @@
-site_name: Bilberry Software
+site_name: Bilberry Software Open Source
+site_url: https://oss.bilberrysoftware.com/
 extra_css:
   - stylesheets/extra.css
 theme:
@@ -23,7 +24,7 @@ theme:
     - navigation.footer
 plugins:
   - search
-  - blog
+  # - blog
   # - rss:
   #     match_path: blog/posts/.* 
   #     date_from_meta:
@@ -50,12 +51,4 @@ extra:
       make our website better.
 nav:
   - Home: 'index.md'
-  - Services: 'services.md'
-  - Software:
-    - 'software.md'
-    - Kubernetes & Inventory: 'k8s.md'
-    - Workflow & Streamflow: 'easyflow.md'
-  - Bilberry Blog: './blog/index.md'
-  - About: 'about.md'
-  - Contact Us: 'contact-us.md'
-copyright: Copyright &copy; 2023-2024 Bilberry Software Ltd
+copyright: Copyright &copy; 2023-2026 Bilberry Software Ltd
