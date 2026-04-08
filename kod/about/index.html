@@ -1,0 +1,1314 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://oss.bilberrysoftware.com/kod/about/">
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../install/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>About - The Kubernetes Offline Deployment (kod) tool documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#about-kod" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="The Kubernetes Offline Deployment (kod) tool documentation" class="md-header__button md-logo" aria-label="The Kubernetes Offline Deployment (kod) tool documentation" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Kubernetes Offline Deployment (kod) tool documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              About
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bilberrysoftware/kod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bilberrysoftware/kod
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="The Kubernetes Offline Deployment (kod) tool documentation" class="md-nav__button md-logo" aria-label="The Kubernetes Offline Deployment (kod) tool documentation" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    The Kubernetes Offline Deployment (kod) tool documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bilberrysoftware/kod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bilberrysoftware/kod
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href=".." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-known-to-work-with-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packages known to work with kod
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-we-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools we use
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use helm?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-helmfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use helmfile?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-use-my-favourite-tool-instead-of-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not use &lt;MY-FAVOURITE-TOOL&gt; instead of kod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dont-you-support-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why don't you support Windows?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-you-provide-fips-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do you provide FIPS binaries?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-write-kod-in-golang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why write kod in GoLang?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-do-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do you do testing?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-your-background-and-why-the-choice-of-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's your background and why the choice of technologies?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../helmfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    helmfile Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/validated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validated Charts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/zot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zot Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../devguide/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/planning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motivation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#about-the-name" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About the name
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical approach
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages-known-to-work-with-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Packages known to work with kod
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools-we-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools we use
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FAQs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-helm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use helm?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-use-helmfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why use helmfile?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-not-use-my-favourite-tool-instead-of-kod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why not use &lt;MY-FAVOURITE-TOOL&gt; instead of kod?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-dont-you-support-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why don't you support Windows?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#do-you-provide-fips-binaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Do you provide FIPS binaries?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-write-kod-in-golang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why write kod in GoLang?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-do-you-do-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How do you do testing?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#whats-your-background-and-why-the-choice-of-technologies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What's your background and why the choice of technologies?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="about-kod">About kod</h1>
+<p>The Kubernetes Offline Deployment (kod) tool allows you to package a helm chart or helmfile and their dependencies
+and publish them to a Kubernetes cluster in an offline, air-gapped, environment.</p>
+<p>This tool stays as close to <code>helm</code> and <code>helmfile</code> as possible, and tries not to introduce any side effects in how
+it operates. It does not hamper the deployer at all by restricting namespaces, container registries, or any
+other aspect of a deployment. It does not install any additional webhooks or CRD into the target Kubernetes cluster.
+All commands executed are outputted to the console, so you can choose to execute them yourself in future.</p>
+<p>kod prefers the OCI container images and artifact format, but does support the legacy dockerv2 format.
+<code>skopeo</code> is used for moving container images.</p>
+<h2 id="motivation">Motivation</h2>
+<p>Having worked on private, air-gapped installations on numerous occassions the last 7 years and finding existing
+tooling too complex, I decided to create a simple tool that does one thing and one thing only - make it easy
+to move helm charts and containers from a public container registry environment into a private container
+registry environment, and deploy them using standard helm (and helmfile) tooling. This follows the Unix methodology
+that each tool should do one thing well, and only that thing.</p>
+<p>Existing approaches start simple, but wind up being very complicated. They force you to change your CI/CD environments
+and create complex configuration files, changing the way you handle variables and values files, and placing themselves
+between you and executing helm commands. They even modify the way you use a live Kubernetes system, forcing you to
+run additional workloads in each and every cluster, introducing their own CRDs and webhooks, and making the security
+boundary (and thus blast radius) of your target environments that much bigger.</p>
+<p>kod doesn't force you to do this. kod will enable you to package and move containers and helm charts to an
+offline, air-gapped environment, but do so in a way that is fundamentally helm native. The acid test of this
+being your ability to run helm commands on their own once kod has been used to move your charts and containers
+to an offline container and OCI artifact registry. kod always outputs the CLI commands it uses in its own logging,
+to build your knowledge in the needed commands, for <code>skopeo</code> and <code>helm</code> command invocations.</p>
+<h2 id="about-the-name">About the name</h2>
+<p>Being from Scunthorpe, I couldn't pass up the opportunity to continue a long-running inter-town rivalry joke with
+our fishing cousins from nearby Grimsby! We call those fine folk from there 'cod heads'... even though they fish for Haddock
+and not Cod... We do this to see their angry reaction to us apparently confusing the type of fish they catch.
+It's all good fun.</p>
+<p><img alt="Kod Logo" src="../images/logo.png" /></p>
+<p>This is why the logo for 'kod' is, in fact, a Haddock. 8o) It's a laugh, innit? Up the Iron! Oh and go order some
+Haddock from the fish and chip shop, not Cod, as Grimsby Haddock is much better.</p>
+<h2 id="technical-approach">Technical approach</h2>
+<p>A few key principles are at play in kod:-</p>
+<ul>
+<li>Don't modify the target k8s environment</li>
+<li>Handle any complexity as much as we can in the kod command itself</li>
+<li>Allow overrides in a helm-friendly way where we need to customise behaviour to a package (E.g. when they use weird value names for container registry, repository, tag and digest)</li>
+<li>Wrap other tools that do jobs well rather than create our own (E.g. skopeo, helm, helmfile, and the zot container registry)</li>
+<li>Target the OCI container image format and artifact format and protocols as much as possible</li>
+<li>Ensure packages are self-describing, requiring no external information to 'just work'</li>
+<li>Don't assume our container image sources are always public - allows a helm values override on packaging to target a local container registry (E.g. to fetch pre-scanned, authorised container images)</li>
+</ul>
+<p>Some principles are also at play to help users learn the system, rather than hide complexity in the tool:-</p>
+<ul>
+<li>Always show the output of skopeo, helm, and other CLI invocations so they can be performed without kod if needs be</li>
+<li>Allow introspection of the temporary folder and archive format, including via the <code>unpack</code> command - allows scanning before deployment</li>
+<li>Minimise the amount of file operations by not always overwriting temporary files if they exist - allows for resuming partial broken package/deploy commands<ul>
+<li>Also, always allow a --cleanup command option to be used, to clear away these files</li>
+</ul>
+</li>
+</ul>
+<h2 id="packages-known-to-work-with-kod">Packages known to work with kod</h2>
+<p>Any helm chart that uses common names for container image values in the values file should work. Note that this
+defaults to image.repository and image.tag as a minimum, but could also split the registry out into image.registry,
+and may also specify a specific container image SHA256 hash in an image.digest property.</p>
+<ul>
+<li>bitnami/mongodb (Has to fetch 'latest' version, as tag in the values file doesn't exist!)</li>
+<li>bitnami/postgresql (Has to fetch 'latest' version, as tag in the values file doesn't exist!)</li>
+<li>bitnami/redis (Has to fetch 'latest' version, as tag in the values file doesn't exist!)</li>
+<li>cloudnative-pg/cloudnative-pg (defaults to 'Chart.appVersion' version)</li>
+<li>NiFi kop Operator</li>
+</ul>
+<p>Other automated mechanisms for finding container image references will be added over time. You will
+be able to override this in future for troublesome packages using a kod-hints.yaml file.</p>
+<p>The kod project will try and ensure that at least the top ten monthly viewed charts on artifacts hub always
+work OOTB. See https://artifacthub.io/stats (top right) for that list. We will also provide a mechanism and
+how-to for getting any helm chart working with kod using the hints file.</p>
+<h2 id="tools-we-use">Tools we use</h2>
+<p>Rather than re-invent the wheel, we use and support a number of other opensource tools:-</p>
+<ul>
+<li><a href="https://github.com/containers/skopeo"><code>skopeo</code></a> for downloading and uploading container images</li>
+<li><a href="https://helm.sh/"><code>helm</code></a> for templating, packaging, and deploying the helm charts</li>
+<li><a href="https://helmfile.readthedocs.io/en/latest/"><code>helmfile</code></a> (Soon!) for sequencing the installations of multiple helm charts across namespaces</li>
+<li><a href="https://zotregistry.dev/"><code>zot</code></a> container and artifact registry as our target OCI registry for testing and validating kod. Other container registries are supported though</li>
+</ul>
+<p>Other tools are available... We just don't use them with kod. (E.g. <code>docker save</code>)</p>
+<h2 id="faqs">FAQs</h2>
+<h3 id="why-use-helm">Why use helm?</h3>
+<p>Helm is the de-facto standard for packaging and versioning a Kubernetes application. Other mechanisms such as git
+repos of Kustomize scripts are just painful.</p>
+<h3 id="why-use-helmfile">Why use helmfile?</h3>
+<p>The main weakness of helm itself is that each deployment can only target a single namespace. Chart dependencies
+are aimed at real dependencies, not for installing chains of charts. helmfile allows you to order the
+installation of helm charts across multiple namespaces, and stays native to helm throughout, making it a
+good partner to kod.</p>
+<p>helmfile also supports installing each chart multiple times, with different settings, which can
+be very useful. E.g. for an Istio installation which deploys the <code>gateway</code> chart multiple times in a single
+mesh across multiple namespaces.</p>
+<h3 id="why-not-use-my-favourite-tool-instead-of-kod">Why not use &lt;MY-FAVOURITE-TOOL&gt; instead of kod?</h3>
+<p>I've tried your favourite tool. It was painful. It changed me, and not in a good way (and my entire DevOps pipeline
+along with it). kod is simpler and tries to 'just work' OOTB with a couple of commands and without introducing any
+additional technological complexity.</p>
+<h3 id="why-dont-you-support-windows">Why don't you support Windows?</h3>
+<p>We don't support Windows purely because the 
+<a href="https://github.com/containers/skopeo/issues/715#issuecomment-3649231030"><code>skopeo</code> tool does not support Windows</a>
+(Although this is in the works at the moment... Check the link). Once that does become available, we will support it.
+We do build kod on Windows and publish that binary, just in case one day it does become available. On that day this
+<code>kod.exe</code> programme will work straight away... Assuming Windows' skopeo isn't broken of course...</p>
+<h3 id="do-you-provide-fips-binaries">Do you provide FIPS binaries?</h3>
+<p>Bilberry Software Ltd can provide FIPS binaries for a small charge to those that need them. As we invoke
+other tools, and those tools are the ones that use openssl and other cryptographic suites, we'd supply FIPS
+builds of those tools and just invoke them with kod.</p>
+<h3 id="why-write-kod-in-golang">Why write kod in GoLang?</h3>
+<p>Go is awesome, and is well understood in the Kubernetes community. It also makes for lightweight standalone
+binaries which can be easily installed with the *nix <code>install</code> command. I quite often package up all the K8s
+related CLI tools into a single archive along with an installation script that invokes install for each binary.
+This approach makes for a very simple way to provision jump hosts and dev/test/qa Ubuntu VMs.</p>
+<p>We also may want to allow people to plug in extensions in the future by creating a <code>kod-COMMAND</code> exe separately.
+This is easy to do and quite common in GoLang CLI applications. (E.g. kubectl extensions)</p>
+<h3 id="how-do-you-do-testing">How do you do testing?</h3>
+<p>We plan to use the <a href="https://concourse-ci.org/">Concourse</a> CD tool for all testing, and to rebuild and retest when an upstream dependency
+changes. This lets us be completely hands-off for minor patch builds, whilst supporting and testing the latest
+versions of our tooling. We'll provide a link to our public pipelines once crafted. We will also use GitHub actions,
+but this is purely to carry out GoLang code checks and run unit tests for the CLI tool itself, not perform
+release build creation or carry out complex integration testing. Concourse is better suited to that.</p>
+<p>This is possible because Concourse is a declarative, dependency driven CD tool and builds when any upstream
+dependency changes. It doesn't rely on a code update from ourselves to instigate any of this version
+compatibility testing, instead watching for any upstream change, not just a change to our source code.</p>
+<p>Concourse is a 'generic thing runner' and can run on any platform, natively or in Kubernetes, providing a very
+rich build and test environment. We have Concourse runners on Windows, Mac, and Linux Ubuntu automating the creation
+and testing of our software against Kubernetes clusters and Ubuntu VMs.</p>
+<h3 id="whats-your-background-and-why-the-choice-of-technologies">What's your background and why the choice of technologies?</h3>
+<p>Our main author, <a href="https://github.com/adamfowleruk/">Adam Fowler</a>, has worked for years in regulated industries,
+including healthcare, financial services, insurance, and national security/defence.
+Since 2018 he's mainly worked with Kubernetes and other containerisation technologies, initially working at
+Pivotal/VMware, advising organisations on their Kubernetes, DevOps platform automation, and cloud native software
+development practices and architecture.</p>
+<p>Other claims to fame/notoreity include writing NoSQL for Dummies in 2015 and being the lead architect of the
+England &amp; Wales COVID-19 Digital Contact Tracing app between March and June 2020 before going away and starting the
+<a href="https://heraldprox.io/">Herald Proximity</a> opensource Bluetooth library used in the Australian and Alberta, Canada
+COVID-19 Digital Contact Tracing apps. This is still being actively maintained and is being used as part of Adam's PhD in Clinical
+Medicine at Oxford University.</p>
+<p>The technology choice is purely a practical one, using the de-facto standard technologies for application
+definition and packaging on Kubernetes, and providing a simple tool that slots into them without changing
+how you use them. My general approach is to meet the customers/end-users where they are, rather than trying
+to force changes in behaviour that cost time in training and can lead to greater maintenance and security risks
+down the road, if they are poorly understood or used.</p>
+<p>I used Concourse when at Pivotal and fell in love with it. It allows very small teams to maintain
+large complex software products in a mostly hands-off way. The same with VMware Kubernetes Service
+(formerly Tanzu Kubernetes). I've also been using Microk8s the last 4 years on Ubuntu Server, and love the
+strict confinement mode of it, and its simplicity. Zot too works really well as an Ubuntu Service or as a K8s
+deployment in a shared services cluster. It's super lightweight and easy to use, and fast, and has improved
+tremendously over the last 2 years.</p>
+<p>At Bilberry Software Ltd we can provide support, guidance, consulting, and FIPS builds of all of the above,
+configured to UK Government/NCSC and CIS Benchmark standards.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

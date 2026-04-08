@@ -1,0 +1,1387 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://oss.bilberrysoftware.com/kod/devguide/planning/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Feature planning - The Kubernetes Offline Deployment (kod) tool documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#feature-planning" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="The Kubernetes Offline Deployment (kod) tool documentation" class="md-header__button md-logo" aria-label="The Kubernetes Offline Deployment (kod) tool documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Kubernetes Offline Deployment (kod) tool documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Feature planning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/bilberrysoftware/kod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bilberrysoftware/kod
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="The Kubernetes Offline Deployment (kod) tool documentation" class="md-nav__button md-logo" aria-label="The Kubernetes Offline Deployment (kod) tool documentation" data-md-component="logo">
+      
+  <img src="../../images/logo.png" alt="logo">
+
+    </a>
+    The Kubernetes Offline Deployment (kod) tool documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/bilberrysoftware/kod" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    bilberrysoftware/kod
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../helmfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    helmfile Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../reference/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/validated/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validated Charts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/zot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Zot Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature planning
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feature planning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mvp-v10-alpha1-provides-limited-value-to-deploy-some-basic-helm-charts-without-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVP v1.0-alpha1 - Provides limited value to deploy some basic helm charts without dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-2-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 2 release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-3-release-usage-checks-and-environment-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 3 release - usage checks and environment support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-4-release-more-complex-chart-installation-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 4 release - more complex chart installation use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-beta-1-release-usability-and-compliance-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Beta 1 release - Usability and compliance improvements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-beta-2-release-ease-of-use-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Beta 2 release - Ease of use enhancements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-rc-1-release-release-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 RC 1 release - Release automation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-rc-2-release-ensure-v1-is-ready-for-prime-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 RC 2 release - Ensure V1 is ready for prime time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-full-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 full release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descoped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descoped
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mvp-v10-alpha1-provides-limited-value-to-deploy-some-basic-helm-charts-without-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MVP v1.0-alpha1 - Provides limited value to deploy some basic helm charts without dependencies
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-2-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 2 release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-3-release-usage-checks-and-environment-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 3 release - usage checks and environment support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-alpha-4-release-more-complex-chart-installation-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Alpha 4 release - more complex chart installation use cases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-beta-1-release-usability-and-compliance-improvements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Beta 1 release - Usability and compliance improvements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-beta-2-release-ease-of-use-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 Beta 2 release - Ease of use enhancements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-rc-1-release-release-automation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 RC 1 release - Release automation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-rc-2-release-ensure-v1-is-ready-for-prime-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 RC 2 release - Ensure V1 is ready for prime time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-full-release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.0 full release
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#descoped" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Descoped
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="feature-planning">Feature planning</h1>
+<p>Below are our future plans... Please 
+<a href="https://github.com/bilberrysoftware/kod/issues">Log an Issue on GitHub</a> 
+if you have any strong opinions on our product direction.</p>
+<p>Please read the <a href="https://github.com/bilberrysoftware/kod/blob/main/CONTRIBUTING.md">Contributions Guide</a> 
+and the
+<a href="https://github.com/bilberrysoftware/kod/blob/main/code-of-conduct.md">Code of Conduct</a>
+first.</p>
+<h2 id="mvp-v10-alpha1-provides-limited-value-to-deploy-some-basic-helm-charts-without-dependencies">MVP v1.0-alpha1 - Provides limited value to deploy some basic helm charts without dependencies</h2>
+<ul>
+<li>[X] Invoke kod command pointing at a Helm chart (local folder for now)</li>
+<li>[X] Write a summary description document in a temp folder (lock file)</li>
+<li>[X] Package temp folder as a tar.xz archive (.kodpkg extension) (And re-use a previous temp folder)</li>
+<li>[X] Read a helm chart and determine the direct images required by examining the deployment variables<ul>
+<li>Note: Using the Bitnami chart repo as a guide to common approaches. See https://github.com/bitnami/charts/tree/main/bitnami</li>
+<li>[X] Single image is easy - convention on helm create is image {repository, tag}</li>
+<li>[X] Next is image {registry, repository, tag, digest}</li>
+<li>[X] Support Chart.appVersion when tag isn't specified</li>
+</ul>
+</li>
+<li>[X] Invoke Skopeo to fetch and package the container images, keeping their original SHA hash<ul>
+<li>See https://github.com/containers/skopeo/blob/main/README.md</li>
+<li>[X] Add support to default back to 'latest' if it fails</li>
+</ul>
+</li>
+<li>[X] Test against a variety of known helm charts - 5 working so far out of 13 tested<ul>
+<li>[X] Kafka strimzi operator (OCI only - cannot test yet)<ul>
+<li>helm install my-strimzi-cluster-operator oci://quay.io/strimzi-helm/strimzi-kafka-operator</li>
+</ul>
+</li>
+<li>[X] Bitnami Redis - WORKS</li>
+<li>[X] Redis operator<ul>
+<li>helm repo add ot-helm https://ot-container-kit.github.io/helm-charts/</li>
+<li>helm install redis-operator ot-helm/redis-operator --namespace ot-operators --set featureGates.GenerateConfigInInitContainer=true</li>
+<li>redisOperator.imageName (includes registry), imageTag (blank, defaults to Chart.AppVersion)</li>
+</ul>
+</li>
+<li>[X] Nifi Kop operator - WORKS<ul>
+<li>https://konpyutaika.github.io/nifikop/docs/2_deploy_nifikop/2_customizable_install_with_helm</li>
+<li>standard image repository and tag</li>
+</ul>
+</li>
+<li>[X] cloudnative-pg operator - WORKS</li>
+<li>[X] elastic kubernetes operator<ul>
+<li>Strange one: image: "{{ .Values.image.repository }}{{- if .Values.config.ubiOnly -}}-ubi{{- end -}}{{- if .Values.image.fips -}}-fips{{- end -}}:{{ default .Chart.AppVersion .Values.image.tag }}"</li>
+<li>Defaults tag to Chart.appVersion - was not defaulted because tag was 'null' string - FIXED</li>
+<li>Also has image.fips=false by default</li>
+</ul>
+</li>
+<li>[X] Bitnami MongoDB - WORKS</li>
+<li>[X] Most popular on artifact hub. See https://artifacthub.io/stats on right hand side<ul>
+<li>[X] kube-prometheus-stack<ul>
+<li>oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack</li>
+<li>https://prometheus-community.github.io/helm-charts with chart kube-prometheus-stack</li>
+<li>https://artifacthub.io/packages/helm/prometheus-community/kube-prometheus-stack</li>
+<li>uses global.imageRegistry</li>
+<li>?.alertManagerSpec.image {registry, repository, tag, sha}</li>
+<li>?.(prometheusOperator).image {registry, repository, tag, sha}</li>
+<li>?.patch.image {registry, repository, tag, sha}</li>
+</ul>
+</li>
+<li>[X] argo-cd<ul>
+<li>https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd</li>
+<li>Uses global.image {repository (includes registry), tag}</li>
+<li>Also controller.image, dex.image, dex.initImage, redis.image, redis.exporter.image, redis-ha as left too</li>
+<li>redisSecretInit.image (both empty by default)</li>
+<li>server.image, server.extensions.image</li>
+</ul>
+</li>
+<li>[X] cert-manager<ul>
+<li>https://charts.jetstack.io/cert-manager</li>
+<li>Uses imageRegistry and imageNamespace</li>
+<li>Also deprecated image.name image.repository and image.tag (which is commented out and non discoverable)</li>
+<li>tag defaults to Chart.appVersion</li>
+</ul>
+</li>
+<li>[X] postgresql (This is Bitnami Postgresql) - WORKS</li>
+<li>[X] redis (This is Bitnami Redis)</li>
+<li>[X] loki<ul>
+<li>https://github.com/grafana-community/helm-charts/tree/main/charts/loki</li>
+<li>uses global.imageRegistry</li>
+<li>{loki,lokiTest,lokiCanary,gateway,write,read,backend,ingestor,distributor,querier}.image {registry, repository, tag, digest}</li>
+<li>gateway.metrics.image {repository (includes registry), tag}</li>
+<li>[ ] tag and digest are 'null' and not an empty string - need to validate this<ul>
+<li>sometimes registry and repository are null too ((write,read,backend,ingestor,distributor,querier).image)</li>
+</ul>
+</li>
+<li>PROBABLY MORE, I GAVE UP!</li>
+</ul>
+</li>
+<li>[X] keycloak (This is Bitnami Keycloak)<ul>
+<li>NO TAGS - Looks abandoned or moved from docker.io</li>
+</ul>
+</li>
+<li>[X] prometheus<ul>
+<li>OCI Artifact: oci://ghcr.io/prometheus-community/charts/prometheus</li>
+<li>Helm Repository: https://prometheus-community.github.io/helm-charts with chart prometheus</li>
+<li>https://artifacthub.io/packages/helm/prometheus-community/prometheus</li>
+<li>server.image {repository (includes registry), tag (blank, defaults to Chart.appVersion), digest (blank)<ul>
+<li>Note: Also checks for server.image.distroless and appends '-distroless' if it's true</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[X] Deploy a package (unpack to temp, invoke helm upgrade --install)<ul>
+<li>Note: Do an installation via helm template so we can verify we can replace all the image: values used in container spec</li>
+<li>[X] Add unpack command to create temp folder first</li>
+<li>[X] Process archive and list containers</li>
+<li>[X] Execute skopeo command to upload container image<ul>
+<li>Turns out Skopeo requires zot to use https only for authentication and integration</li>
+</ul>
+</li>
+<li>[X] zot testing: Set up TLS cert and add to Microk8s trusted cert list so installation works, and skopeo verifies TLS</li>
+</ul>
+</li>
+<li>[X] Support -r flag for the local registry base to use during deployment<ul>
+<li>[X] Test against an Ubuntu Service installation of zot<ul>
+<li>[X] Install and verify that zot is running and accessible</li>
+<li>[SKIP] Add --insecure-no-verify command option for bypassing TLS server checks<ul>
+<li>Note that skopeo does this the other way around, so we should add --verify by default to skopeo</li>
+<li>Skopeo must run against a valid https server with a valid cert - no way around it</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[X] Validate helm and kod installations are identical with the same values file (except image URL obvs)<ul>
+<li>[X] Bitnami Redis</li>
+<li>Fails on requiring dependency in Chart.yaml</li>
+<li>Bitnami Common: registry=oci://registry-1.docker.io/bitnamicharts, tag=bitnami-common</li>
+<li>[X] Bitnami Postgresql</li>
+<li>Same issue as above</li>
+<li>[X] Bitnami MongoDB<ul>
+<li>Same issue as above</li>
+</ul>
+</li>
+<li>[X] Nifi Kop operator</li>
+<li>Requires cert-manager<ul>
+<li>Error: unable to build kubernetes objects from release manifest: [resource mapping not found for name: "nifikop-webhook-cert" namespace: "default" from "": no matches for kind "Certificate" in version "cert-manager.io/v1"</li>
+<li>ensure CRDs are installed first, resource mapping not found for name: "selfsigned-issuer" namespace: "default" from "": no matches for kind "Issuer" in version "cert-manager.io/v1"</li>
+</ul>
+</li>
+<li>[X] cloudnative-pg operator</li>
+<li>Worked first time! Sun 06 Apr 2026 07:07</li>
+<li>Still using remote container image reference - need to rewrite that in the helm chart to the local value</li>
+<li>[X] Istio charts (Because I know these are standalone without dependencies)</li>
+<li>[X] Download source of helm chart first - we cannot use remote chart references yet </li>
+<li>[X] istio-base<ul>
+<li>Worked first time! Sun 06 Apr 2026 07:20</li>
+<li>Still using remote container image reference - need to rewrite that in the helm chart to the local value</li>
+</ul>
+</li>
+<li>[X] istiod<ul>
+<li>Worked first time! Sun 06 Apr 2026 07:20</li>
+<li>Still using remote container image reference - need to rewrite that in the helm chart to the local value</li>
+</ul>
+</li>
+<li>[X] istio ingress gateway<ul>
+<li>Worked first time! Sun 06 Apr 2026 07:23</li>
+<li>Still using remote container image reference - need to rewrite that in the helm chart to the local value</li>
+</ul>
+</li>
+<li>Note: Istio won't actually find the correct container reference, as istiod dynamically injects it at runtime - We'll need to figure this out</li>
+<li>Note: Egress gateway needs --set or -f support</li>
+<li>[X] Turn these tests into scripts to be executed by a CD env (but that can be ran manually)</li>
+</ul>
+</li>
+<li>Might be required to get some charts working at all</li>
+<li>[X] Support local container images by pointing references in YAML to new internal registry<ul>
+<li>[X] Package: Output hints file within charts folder next to its chart CHARTNAME-CHARTVER-hints.yaml</li>
+<li>[X] Deploy: Generate values file with new deployment image names and location using hints file, to CHARTNAME-CHARTVER-values.yaml in chart folder</li>
+</ul>
+</li>
+<li>[X] Basics for v1.0-alpha1 release<ul>
+<li>[X] Add basic documentation</li>
+<li>[X] Ensure docs are built and pushed to the oss.bilberrysoftware.com/kod subsite</li>
+<li>Created as 'kod-website' artifact in GitHub Actions workflow</li>
+<li>[X] Perform manual build and test of kod CLI ready to create Release bundle</li>
+</ul>
+</li>
+<li>[X] Complete and push this version</li>
+</ul>
+<h2 id="10-alpha-2-release">1.0 Alpha 2 release</h2>
+<ul>
+<li>[ ] Bug container copy on package ignores other containers in same folder - E.g. docker.io - due to 'exists' check on folder instead of file</li>
+<li>[ ] Support helm -f / --values file flag (one or more values files) at deployment time</li>
+<li>[ ] Invoke command on remote helm reference<ul>
+<li>[ ] Add a check for the helm command as this will be a prerequisite in this instance<ul>
+<li>[ ] -r registry flag (this indicates a remote helm chart will be used)</li>
+<li>[ ] -c chart name flag</li>
+<li>Note: uses helm repo add/update/save to accomplish this</li>
+</ul>
+</li>
+<li>[ ] We may need to support the helm fetch flags for OCI repositories on the package command</li>
+</ul>
+</li>
+<li>[ ] Add deploy support for helm --wait</li>
+<li>[ ] Skopeo invocation enhancements<ul>
+<li>[ ] Stream output of skopeo copy so the user can monitor progress of the downloads</li>
+<li>[ ] Check for Skopeo on path before executing package command (Note that skopeo is not available on windows)</li>
+<li>[ ] Check to see if skopeo needs to be logged in to access any of the containers mentioned (and prompt if so)</li>
+<li>[ ] Fetch container info to determine digest, and save this to the container info in the package file</li>
+<li>[ ] Further image detection improvements<ul>
+<li>[ ] Another convention is global.imageRegistry (2 of top ten) (and imagePullSecrets) (Will override other registry refs)</li>
+<li>[ ] Search entire tree for '.*[iI]mage' and sub elements (4 of top ten)</li>
+<li>[ ] Allow specification of container images, and links to config elements, for things we cannot guess - kod-hints.yaml<ul>
+<li>Note: include this as kod-hints.yaml in the output archive too</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[ ] Read images required from the deployment YAML templates (helm template), and reverse parse their parameters (Complex)<ul>
+<li>If it works, we should be able to support any helm chart OOTB without a hints file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[ ] Allow packaging with -f option to override default values, especially image paths to a local container registry<ul>
+<li>[ ] Use this with helm template to parse final output to find all container image references<ul>
+<li>How to reverse engineer this back into properties that can be overridden?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>[ ] Provide a --no-registry-in-path option on package so that an internal replica of public container images doesn't end up named 'myinternalregistry.local/docker.io/MYNAME:TAG' and is instead just named for its original location 'docker.io/MYNAME:TAG'</li>
+<li>Note that the image itself may still include this reference as a separate tag value</li>
+<li>[ ] Read dependency chart information</li>
+<li>[ ] Consider adding -o option on deploy to specify where in the container/artifact registry to save helm artifacts to</li>
+<li>[ ] Consider splitting deploy into populate and deploy commands so we have a separation of concerns between those who can write to the repo and deploy the package</li>
+<li>Still make just executing deploy check if it needs to populate, if executed from a .kodpkg</li>
+<li>Have populate command create a mypackage-myversion.kodapp file that describes where locally content resides, and that can be passed to a deployer and used in the deploy command<ul>
+<li>By definition, this should include a helm values file with the necessary image elements overridden</li>
+<li>Should be another archive format, with an updated kod-package.yaml and a new kod-app.yaml and kod-values.yaml included</li>
+<li>We may not need a kod-app.yaml file, but instead update the container image references in kod-package.yaml, and change helm reference to an OCI artifact URL</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-alpha-3-release-usage-checks-and-environment-support">1.0 Alpha 3 release - usage checks and environment support</h2>
+<ul>
+<li>[ ] Add in checks for all required/optional values for each command, and sensible values checks</li>
+<li>[ ] Enforce best practice. E.g. no 'latest' tag versions, and add --allow-latest-tag flag</li>
+<li>[ ] Error if container image being copied matches an existing one but has a different Digest value</li>
+<li>[ ] Check for different versions of the same container image being used, and output a warning to CLI</li>
+<li>[ ] Allow specification of target architecture, or all in the same - default to amd64 and allow --arch=all and --arch=arm64 etc?<ul>
+<li>If specified, place name of target architecture in the archive file name</li>
+<li>Add specification of container architecture for deployment, if supported by skopeo (i.e. from 'all' archs archive)</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-alpha-4-release-more-complex-chart-installation-use-cases">1.0 Alpha 4 release - more complex chart installation use cases</h2>
+<ul>
+<li>[ ] Add single helmfile support<ul>
+<li>[ ] Check for helmfile CLI on the path</li>
+<li>[ ] Basic single helm chart support</li>
+<li>[ ] Multiple helm charts, multiple namespaces support</li>
+<li>[ ] Same helm chart, multiple namespaces support (E.g. Istio ingress/egress gateways)</li>
+<li>[ ] helmfile overrides file support (deploy -f option may need its docs changing)</li>
+</ul>
+</li>
+<li>[ ] Add Chart dependency chart support<ul>
+<li>Will require a deploy:list element in the kod-package file to specify the installable ones that are NOT just dependencies<ul>
+<li>This has the side effect of potentially opening up the possibility to include and invoke multiple helm charts/helmfiles</li>
+<li>This must be avoided, otherwise semantics like -f to specify override helm chart values files and -n for namespace make no sense</li>
+<li>Prefer multiple invocations of kod and separate packages for distinct charts</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-beta-1-release-usability-and-compliance-improvements">1.0 Beta 1 release - Usability and compliance improvements</h2>
+<ul>
+<li>[ ] Add bash completion support - See https://cobra.dev/docs/how-to-guides/shell-completion/</li>
+<li>[ ] Add --ci flag to not prompt with questions (E.g. skopeo login)</li>
+<li>[ ] Add --output-commands-only to only output the manual bash commands to carry out the necessary actions, and no other logged information, without carrying the commands out.</li>
+<li>[ ] Generate SBOM files during generation</li>
+<li>[ ] Output sha256 digest file alongside archive</li>
+<li>[ ] Log sha256 hashes of components within a sumfile in the archive itself too, and check this on all command invocations<ul>
+<li>Can also be used to see if unpacking commands need re-running on partial unpack/deploy failures</li>
+</ul>
+</li>
+</ul>
+<h2 id="10-beta-2-release-ease-of-use-enhancements">1.0 Beta 2 release - Ease of use enhancements</h2>
+<ul>
+<li>[ ] Add common mappings for the top ten charts' image specs into the kod binary</li>
+<li>[ ] Add colour terminal and emoji support to the output in the terminal</li>
+<li>[ ] Add --cleanup flag to package and deploy to clean up temporary folder after all operations (except unpack)</li>
+<li>[ ] Add --sanitise flag to remove the internal container registry names from the helm charts and hints files, and generate our own</li>
+<li>[ ] Add support for local .tgz helm chart archives for <code>package -c</code></li>
+<li>[ ] Add support for <code>oci://</code> URLs for helm chart archives via <code>package -c</code></li>
+<li>[ ] Add support for artifactory URLs for helm chart archives via <code>--rt</code> flag and the <code>jf rt dl</code> command, if jf is installed</li>
+</ul>
+<h2 id="10-rc-1-release-release-automation">1.0 RC 1 release - Release automation</h2>
+<ul>
+<li>[ ] Create GitHub Actions build and CI linting check support</li>
+<li>[ ] Create Concourse public builds and testing pipeline</li>
+<li>[ ] Add in version CLI command support, and building of version into binary</li>
+<li>[ ] Add support for GoLang builds onto multiple environments</li>
+<li>[ ] Push out a v1.0-rc1 release package using Concourse as a pipe cleaning exercise</li>
+</ul>
+<h2 id="10-rc-2-release-ensure-v1-is-ready-for-prime-time">1.0 RC 2 release - Ensure V1 is ready for prime time</h2>
+<ul>
+<li>[ ] Add in community required files, security procedure, etc</li>
+<li>[ ] Ensure new Bilberry website is live, with a page about kod, and links to/from kod repo</li>
+<li>[ ] Ensure build badges are included in the README.md file</li>
+<li>[ ] Add automated creation of an Issue (bug) if a CD build or integration test fails</li>
+<li>Anything glaring I've missed...</li>
+</ul>
+<h2 id="10-full-release">1.0 full release</h2>
+<ul>
+<li>Should hopefully just be a more solid build of rc2, with automated publishing</li>
+</ul>
+<h2 id="descoped">Descoped</h2>
+<ul>
+<li>[ ] Refresh command with new version of helm charts</li>
+<li>[ ] Helper to install skopeo if it doesn't already exist when executing the package command (sudo apt-get update; sudo apt-get -y install skopeo)</li>
+<li>[ ] Consider adding support for curl/wget instead of <code>jf rt dl</code> where that CLI is not available for <code>kod package --rt</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.instant.prefetch", "navigation.expand", "navigation.path", "navigation.indexes", "navigation.sections", "navigation.top", "navigation.tracking", "toc.follow", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
